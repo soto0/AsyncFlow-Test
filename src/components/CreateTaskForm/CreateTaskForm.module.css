@@ -1,0 +1,102 @@
+.form {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.field {
+    display: flex;
+    flex-direction: column;
+    gap: 6px;
+    margin: 0;
+    padding: 0;
+    border: none;
+}
+
+.label {
+    padding: 0;
+    font-size: 0.875rem;
+    font-weight: 600;
+}
+
+.input {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    background: var(--surface);
+    color: var(--text);
+    font: inherit;
+    resize: vertical;
+}
+
+.input:focus-visible {
+    border-color: var(--primary);
+    outline: 3px solid var(--focus-ring);
+}
+
+.input[aria-invalid='true'] {
+    border-color: var(--high);
+}
+
+.error {
+    margin: 0;
+    color: var(--high);
+    font-size: 0.8125rem;
+}
+
+.selectWrap {
+    --accent: var(--medium);
+
+    position: relative;
+}
+
+.selectWrap[data-priority='high'] {
+    --accent: var(--high);
+}
+
+.selectWrap[data-priority='low'] {
+    --accent: var(--low);
+}
+
+/* цветная точка текущего приоритета и стрелка */
+.selectWrap::before,
+.selectWrap::after {
+    position: absolute;
+    top: 50%;
+    content: '';
+    pointer-events: none;
+}
+
+.selectWrap::before {
+    left: 12px;
+    width: 10px;
+    height: 10px;
+    margin-top: -5px;
+    border-radius: 50%;
+    background: var(--accent);
+}
+
+.selectWrap::after {
+    right: 14px;
+    width: 8px;
+    height: 8px;
+    margin-top: -6px;
+    border-right: 2px solid var(--text-muted);
+    border-bottom: 2px solid var(--text-muted);
+    transform: rotate(45deg);
+}
+
+.select {
+    padding-left: 32px;
+    padding-right: 36px;
+    appearance: none;
+    cursor: pointer;
+}
+
+.actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 8px;
+    margin-top: 4px;
+}

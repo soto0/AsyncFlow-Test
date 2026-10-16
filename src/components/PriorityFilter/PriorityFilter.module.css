@@ -1,0 +1,77 @@
+.filter {
+    position: relative;
+}
+
+/* подпись нужна скринридерам, визуально значение говорит само за себя */
+.label {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    overflow: hidden;
+    clip-path: inset(50%);
+    white-space: nowrap;
+}
+
+.selectWrap {
+    --accent: var(--text-muted);
+
+    position: relative;
+    min-width: 220px;
+}
+
+.selectWrap[data-priority='high'] {
+    --accent: var(--high);
+}
+
+.selectWrap[data-priority='medium'] {
+    --accent: var(--medium);
+}
+
+.selectWrap[data-priority='low'] {
+    --accent: var(--low);
+}
+
+/* цветная точка выбранного приоритета и стрелка */
+.selectWrap::before,
+.selectWrap::after {
+    position: absolute;
+    top: 50%;
+    content: '';
+    pointer-events: none;
+}
+
+.selectWrap::before {
+    left: 12px;
+    width: 10px;
+    height: 10px;
+    margin-top: -5px;
+    border-radius: 50%;
+    background: var(--accent);
+}
+
+.selectWrap::after {
+    right: 14px;
+    width: 8px;
+    height: 8px;
+    margin-top: -6px;
+    border-right: 2px solid var(--text-muted);
+    border-bottom: 2px solid var(--text-muted);
+    transform: rotate(45deg);
+}
+
+.select {
+    width: 100%;
+    padding: 10px 36px 10px 32px;
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    background: var(--surface);
+    color: var(--text);
+    font: inherit;
+    font-weight: 500;
+    appearance: none;
+    cursor: pointer;
+}
+
+.select:focus-visible {
+    border-color: var(--primary);
+}

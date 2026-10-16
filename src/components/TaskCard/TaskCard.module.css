@@ -1,0 +1,74 @@
+.card {
+    --accent: var(--low);
+    --accent-bg: var(--low-bg);
+
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    height: 100%;
+    padding: 16px 16px 16px 20px;
+    border: 1px solid var(--border);
+    border-left: 4px solid var(--accent);
+    border-radius: var(--radius-md);
+    background: var(--surface);
+    box-shadow: var(--shadow-sm);
+}
+
+.card[data-priority='high'] {
+    --accent: var(--high);
+    --accent-bg: var(--high-bg);
+}
+
+.card[data-priority='medium'] {
+    --accent: var(--medium);
+    --accent-bg: var(--medium-bg);
+}
+
+.meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 6px;
+}
+
+.priority,
+.status {
+    padding: 2px 8px;
+    border-radius: 999px;
+    font-size: 0.75rem;
+    font-weight: 600;
+}
+
+.priority {
+    background: var(--accent-bg);
+    color: var(--accent);
+}
+
+.status {
+    background: var(--surface-muted);
+    color: var(--text-muted);
+}
+
+.status[data-status='done'] {
+    text-decoration: line-through;
+}
+
+.title {
+    margin: 0;
+    font-size: 1rem;
+    line-height: 1.4;
+    overflow-wrap: anywhere;
+}
+
+.description {
+    margin: 0;
+    color: var(--text-muted);
+    font-size: 0.875rem;
+    line-height: 1.5;
+    overflow-wrap: anywhere;
+}
+
+.date {
+    margin-top: auto;
+    color: var(--text-muted);
+    font-size: 0.75rem;
+}
